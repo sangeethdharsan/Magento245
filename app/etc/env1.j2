@@ -6,7 +6,7 @@ return [
     'remote_storage' => [
         'driver' => 'file'
     ],
-    'queue' => [
+'queue' => [
         'amqp' => [
             'host' => 'localhost',
             'port' => {{ port }},
@@ -49,10 +49,28 @@ return [
     'cache' => [
         'frontend' => [
             'default' => [
-                'id_prefix' => '09c_'
+                'id_prefix' => '09c_',
+                'backend' => 'Magento\\Framework\\Cache\\Backend\\Redis',
+                'backend_options' => [
+                    'server' => {{ server1 }},
+                    'database' => {{ database1 }},
+                    'port' => {{ port1 }},
+                    'password' => '',
+                    'compress_data' => '1',
+                    'compression_lib' => ''
+                ]
             ],
             'page_cache' => [
-                'id_prefix' => '09c_'
+                'id_prefix' => '09c_',
+                'backend' => 'Magento\\Framework\\Cache\\Backend\\Redis',
+                'backend_options' => [
+                    'server' => {{ server2 }},
+                    'database' => {{ database2 }},
+                    'port' => {{ port2 }},
+                    'password' => '',
+                    'compress_data' => '0',
+                    'compression_lib' => ''
+                ]
             ]
         ],
         'allow_parallel_generation' => false

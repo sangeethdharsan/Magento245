@@ -1,0 +1,25 @@
+---  
+- hosts: localhost
+  vars:  
+    dbname: "'magentodb'" 
+    username: "'magento'"
+    password: "'admin@123'"
+    model: "'sql4'"
+    engine: "'innodb'"
+    frontname: 'admin123'
+  tasks:  
+    - name: configuration for env.php file
+      template:  
+        src: env.j2  
+        dest: env.php
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+       
