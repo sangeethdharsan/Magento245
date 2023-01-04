@@ -102,5 +102,10 @@
     ],
     "extra": {
         "magento-force": "override"
-    }
+    },
+    "extra": {
+  "symfony": {
+    "require": "5.4.17"
+  }
+}
 }
